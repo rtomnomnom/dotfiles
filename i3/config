@@ -59,6 +59,8 @@ bindsym $mod+d exec --no-startup-id rofi -show drun -show-icons
 bindsym $mod+p exec --no-startup-id $HOME/scripts/show_power_menu.sh
 bindsym $mod+Tab exec --no-startup-id rofi -show window -show-icons
 bindsym $mod+c exec --no-startup-id CM_LAUNCHER=rofi clipmenu -p 'clipboard' -i
+bindsym $mod+n exec --no-startup-id networkmanager_dmenu
+bindsym $mod+b exec --no-startup-id $HOME/scripts/show_bluetooth.sh
 
 # change focus
 bindsym $mod+j focus left
@@ -210,7 +212,7 @@ bindsym $mod+r mode "resize"
 exec_always --no-startup-id CM_SELECTIONS=clipboard clipmenud
 
 # nm-applet
-exec_always --no-startup-id nm-applet
+# exec_always --no-startup-id nm-applet
 
 # picom
 exec_always --no-startup-id picom -f 
