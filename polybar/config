@@ -66,9 +66,9 @@ font-2 = Font Awesome 5 Free:style=Solid:size=12;2
 font-3 = Font Awesome 5 Brands:size=12;1
 font-4 = Iosevka Nerd Font:size=12;2
 
-modules-left = i3 divider clipboard network bluetooth
-modules-center = xwindow
-modules-right = pulseaudio package-updates cpu memory battery date
+modules-left = i3 divider screenshot clipboard network bluetooth powermenu
+modules-center = date
+modules-right = pulseaudio package-updates temperature cpu memory battery
 
 tray-position = right
 tray-padding = 1
@@ -134,6 +134,15 @@ label = %title:0:30:...%
 label-font = 2
 
 
+[module/screenshot]
+type = custom/text
+
+click-left = $HOME/.config/rofi/screenshot.sh
+
+content = 
+content-foreground = ${colors.blue}
+
+
 [module/clipboard]
 type = custom/text
 
@@ -168,7 +177,7 @@ format-volume = <ramp-volume> <bar-volume>
 
 format-muted = <label-muted>
 format-muted-prefix = 
-format-muted-prefix-foreground = ${colors.magenta}
+format-muted-prefix-foreground = ${colors.purple}
 
 label-volume = %percentage%%
 
@@ -179,7 +188,7 @@ label-muted-foreground = ${colors.foreground}
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
-ramp-volume-foreground = ${colors.magenta}
+ramp-volume-foreground = ${colors.purple}
 
 ; Only applies if <bar-volume> is used
 bar-volume-format = "%fill%%indicator%%empty%"
@@ -207,17 +216,54 @@ interval = 1000
 
 format = <label>
 format-prefix = " "
-format-prefix-foreground = ${colors.orange}
+format-prefix-foreground = ${colors.purple}
 
 label = %output%
 label-font = 2
+
+
+[module/temperature]
+type = internal/temperature
+
+; Seconds to sleep between updates
+; Default: 1
+interval = 5
+
+format = <label>
+format-prefix = " "
+format-prefix-foreground = ${colors.purple}
+
+label = %temperature-c%
+label-font = 2
+
+; Thermal zone to use
+; To list all the zone types, run 
+; $ for i in /sys/class/thermal/thermal_zone*; do echo "$i: $(<$i/type)"; done
+; Default: 0
+thermal-zone = 10
+
+; Full path of temperature sysfs path
+; Use `sensors` to find preferred temperature source, then run
+; $ for i in /sys/class/hwmon/hwmon*/temp*_input; do echo "$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)"; done
+; to find path to desired file
+; Default reverts to thermal zone setting
+hwmon-path = /sys/devices/virtual/thermal/thermal_zone10/hwmon4/temp1_input
+
+; Base temperature for where to start the ramp (in degrees celsius)
+; Default: 0
+base-temperature = 20
+
+; Threshold temperature to display warning label (in degrees celsius)
+; Default: 80
+warn-temperature = 60
+
 
 
 [module/cpu]
 type = internal/cpu
 interval = 2
 format-prefix = " "
-format-prefix-foreground = ${colors.brown}
+format-prefix-foreground = ${colors.purple}
 label = %percentage%%
 label-font = 2
 
@@ -244,7 +290,7 @@ full-at = 98
 ;   <animation-charging>
 format-charging = <label-charging>
 format-charging-prefix = ""
-format-charging-prefix-foreground = ${colors.green}
+format-charging-prefix-foreground = ${colors.purple}
 
 ; Available tags:
 ;   <label-discharging> (default)
@@ -253,7 +299,7 @@ format-charging-prefix-foreground = ${colors.green}
 ;   <animation-discharging>
 format-discharging = <label-discharging>
 format-discharging-prefix = ""
-format-discharging-prefix-foreground = ${colors.magenta}
+format-discharging-prefix-foreground = ${colors.purple}
 
 ; Available tags:
 ;   <label-full> (default)
@@ -261,7 +307,7 @@ format-discharging-prefix-foreground = ${colors.magenta}
 ;   <ramp-capacity>
 format-full = <label-full>
 format-full-prefix = " "
-format-full-prefix-foreground = ${colors.green}
+format-full-prefix-foreground = ${colors.purple}
 
 ; Available tokens:
 ;   %percentage% (default)
@@ -322,20 +368,20 @@ date-alt = " %Y-%m-%d"
 time = %l:%M %p
 time-alt = %H:%M:%S
 
-format-prefix = 
-format-prefix-foreground = ${colors.yellow}
+;format-prefix = 
+;format-prefix-foreground = ${colors.yellow}
 
 label = %date% %time%
 label-font = 2
 
 
-[module/powermenuu]
+[module/powermenu]
 type = custom/text
 
 click-left = $HOME/scripts/show_power_menu.sh
 
 content = 
-content-foreground = ${colors.red}
+content-foreground = ${colors.blue}
 
 
 [module/divider]
