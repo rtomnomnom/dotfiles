@@ -137,7 +137,7 @@ label-font = 2
 [module/screenshot]
 type = custom/text
 
-click-left = $HOME/.config/rofi/screenshot.sh
+click-left = flameshot gui -d 2000
 
 content = 
 content-foreground = ${colors.blue}
@@ -240,14 +240,14 @@ label-font = 2
 ; To list all the zone types, run 
 ; $ for i in /sys/class/thermal/thermal_zone*; do echo "$i: $(<$i/type)"; done
 ; Default: 0
-thermal-zone = 10
+thermal-zone = 0
 
 ; Full path of temperature sysfs path
 ; Use `sensors` to find preferred temperature source, then run
 ; $ for i in /sys/class/hwmon/hwmon*/temp*_input; do echo "$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)"; done
 ; to find path to desired file
 ; Default reverts to thermal zone setting
-hwmon-path = /sys/devices/virtual/thermal/thermal_zone10/hwmon4/temp1_input
+hwmon-path = /sys/devices/virtual/thermal/thermal_zone0/hwmon4/temp1_input
 
 ; Base temperature for where to start the ramp (in degrees celsius)
 ; Default: 0
