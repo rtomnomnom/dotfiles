@@ -1,0 +1,157 @@
+/**************************************************************************************
+    ROFI THEME
+|------------------------------------------------------------------------------------|
+| window {BOX:vertical}                                                              |
+| |-------------------------------------------------------------------------------|  |
+| | mainbox  {BOX:vertical}                                                       |  |
+| | |---------------------------------------------------------------------------| |  |
+| | | inputbar {BOX:horizontal}                                                 | |  |
+| | | |---------| |-| |---------------------------------|---| |---| |---| |---| | |  |
+| | | | prompt  | |:| | entry                           |#fr| | / | |#ns| |ci | | |  |
+| | | |---------| |_| |---------------------------------|---| |---| |---| |---| | |  |
+| | |---------------------------------------------------------------------------| |  |
+| |                                                                               |  |
+| | |---------------------------------------------------------------------------| |  |
+| | | message                                                                   | |  |
+| | | |-----------------------------------------------------------------------| | |  |
+| | | | textbox                                                               | | |  |
+| | | |-----------------------------------------------------------------------| | |  |
+| | |---------------------------------------------------------------------------| |  |
+| |                                                                               |  |
+| | |-----------------------------------------------------------------------------|  |
+| | | listview                                                                    |  |
+| | |-----------------------------------------------------------------------------|  |
+| |                                                                               |  |
+| | |---------------------------------------------------------------------------| |  |
+| | |  mode-switcher {BOX:horizontal}                                           | |  |
+| | | |---------------|   |---------------|  |--------------| |---------------| | |  |
+| | | | Button        |   | Button        |  | Button       | | Button        | | |  |
+| | | |---------------|   |---------------|  |--------------| |---------------| | |  |
+| | |---------------------------------------------------------------------------| |  |
+| |-------------------------------------------------------------------------------|  |
+|------------------------------------------------------------------------------------|
+
+**************************************************************************************/
+
+@import "colors.rasi"
+
+* {
+    input:                       @color4;
+    selected:                    @color1;
+    highlight:                   underline bold #eee8d5;
+    
+    normal-background:           @black;
+    normal-foreground:           @color7;
+    selected-normal-background:  @color1;
+    selected-normal-foreground:  @color2;
+    
+    active-background:           @color11;
+    active-foreground:           @color9;
+    selected-active-background:  @color1;
+    selected-active-foreground:  @color2;
+    
+    urgent-background:           @color11;
+    urgent-foreground:           @color9;
+    selected-urgent-background:  @color1;
+    selected-urgent-foreground:  @color8;
+    
+    border-color:                @color13;
+    background-color:            @black;
+}
+
+window {
+    background-color: @background-color;
+    border:           0;
+    padding:          10;
+    border-radius:    10px;
+    width:            750px;
+}
+
+mainbox {
+    border:  0;
+    padding: 0;
+}
+
+prompt {
+    spacing:    0;
+    text-color: @normal-foreground;
+}
+textbox-prompt-colon {
+    expand:     false;
+    str:        ":";
+    margin:     0px 0.3em 0em 0em ;
+    text-color: @normal-foreground;
+}
+entry {
+    spacing:    0;
+    text-color: @input;
+}
+inputbar {
+    children:   [ prompt,textbox-prompt-colon,entry ];
+}
+
+message {
+    border:       1px dash 0px 0px;
+    border-color: @border-color;
+    padding:      2px;
+}
+textbox {
+    text-color: @normal-foreground;
+}
+
+listview {
+    border-color: @border-color;
+    border:       1px dash 0px 0px;
+    spacing:      7px;
+    scrollbar:    false;
+    padding:      10px;
+    lines:        10;
+}
+element {
+    padding: 3px;
+    border-radius: 4px;
+    background-color: @normal-background;
+    text-color:       @normal-foreground;
+}
+element.normal.normal {
+    background-color: @normal-background;
+    text-color:       @normal-foreground;
+}
+element.selected.normal {
+    background-color: @selected-normal-background;
+    text-color:       @selected-normal-foreground;
+}
+element.normal.active {
+    background-color: @active-background;
+    text-color:       @active-foreground;
+}
+element.selected.active {
+    background-color: @selected-active-background;
+    text-color:       @selected-active-foreground;
+}
+element.normal.urgent {
+    background-color: @urgent-background;
+    text-color:       @urgent-foreground;
+}
+element.selected.urgent {
+    background-color: @selected-urgent-background;
+    text-color:       @selected-urgent-foreground;
+}
+element-text {
+    highlight: @highlight;
+}
+element-icon {
+    size: 30;
+    padding: 0 10px 0 0;
+}
+
+mode-switcher {
+    border:       2px dash 0px 0px;
+    border-color: @border-color;
+}
+button.selected {
+    background-color: @selected-normal-background;
+    text-color:       @selected-normal-foreground;
+}
+
+/* vim:ft=css
