@@ -17,17 +17,17 @@
 ;==========================================================
 
 [colors]
-background = #000000
+background = #101823
 background-alt = #444
-foreground = #22a1a3
+foreground = #41c8a8
 foreground-alt = #555
-blue = #268bd2
+blue = #2699ff
 red = #dc322f
 green = #00A300
 yellow = #b58900
 magenta = #d33682
 white = #eee8d5
-orange = #cb4b16
+orange = #cf4539
 purple = #6c71c4
 brown = #672e42
 
@@ -48,9 +48,9 @@ line-size = 2
 ;line-color = #f00
 
 ;border-size = 15
-border-left-size = 12
+border-left-size = 200
 border-top-size = 12
-border-right-size = 12
+border-right-size = 200
 border-bottom-size = 0
 border-color = #00000000
 
@@ -105,13 +105,15 @@ ws-icon-default = 
 
 ; focused = Active workspace on focused monitor
 label-focused = %icon%
+label-focused-foreground = ${colors.yellow}
 label-focused-background = ${colors.background}
-label-focused-underline= ${colors.blue}
+label-focused-underline= ${colors.foreground}
 label-focused-padding = 2
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %icon%
 label-unfocused-padding = 2
+label-unfocused-foreground = ${colors.yellow}
 
 ; visible = Active workspace on unfocused monitor
 label-visible = %icon%
@@ -177,7 +179,7 @@ format-volume = <ramp-volume> <bar-volume>
 
 format-muted = <label-muted>
 format-muted-prefix = 
-format-muted-prefix-foreground = ${colors.purple}
+format-muted-prefix-foreground = ${colors.orange}
 
 label-volume = %percentage%%
 
@@ -188,7 +190,7 @@ label-muted-foreground = ${colors.foreground}
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
-ramp-volume-foreground = ${colors.purple}
+ramp-volume-foreground = ${colors.orange}
 
 ; Only applies if <bar-volume> is used
 bar-volume-format = "%fill%%indicator%%empty%"
@@ -216,7 +218,7 @@ interval = 1000
 
 format = <label>
 format-prefix = " "
-format-prefix-foreground = ${colors.purple}
+format-prefix-foreground = ${colors.orange}
 
 label = %output%
 label-font = 2
@@ -231,7 +233,7 @@ interval = 5
 
 format = <label>
 format-prefix = " "
-format-prefix-foreground = ${colors.purple}
+format-prefix-foreground = ${colors.orange}
 
 label = %temperature-c%
 label-font = 2
@@ -263,7 +265,7 @@ warn-temperature = 60
 type = internal/cpu
 interval = 2
 format-prefix = " "
-format-prefix-foreground = ${colors.purple}
+format-prefix-foreground = ${colors.orange}
 label = %percentage%%
 label-font = 2
 
@@ -272,7 +274,7 @@ label-font = 2
 type = internal/memory
 interval = 2
 format-prefix = " "
-format-prefix-foreground = ${colors.purple}
+format-prefix-foreground = ${colors.orange}
 label = %percentage_used%%
 label-font = 2
 
@@ -290,7 +292,7 @@ full-at = 98
 ;   <animation-charging>
 format-charging = <label-charging>
 format-charging-prefix = ""
-format-charging-prefix-foreground = ${colors.purple}
+format-charging-prefix-foreground = ${colors.orange}
 
 ; Available tags:
 ;   <label-discharging> (default)
@@ -299,7 +301,7 @@ format-charging-prefix-foreground = ${colors.purple}
 ;   <animation-discharging>
 format-discharging = <label-discharging>
 format-discharging-prefix = ""
-format-discharging-prefix-foreground = ${colors.purple}
+format-discharging-prefix-foreground = ${colors.orange}
 
 ; Available tags:
 ;   <label-full> (default)
@@ -307,7 +309,7 @@ format-discharging-prefix-foreground = ${colors.purple}
 ;   <ramp-capacity>
 format-full = <label-full>
 format-full-prefix = " "
-format-full-prefix-foreground = ${colors.purple}
+format-full-prefix-foreground = ${colors.orange}
 
 ; Available tokens:
 ;   %percentage% (default)

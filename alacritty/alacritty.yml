@@ -184,17 +184,17 @@ colors:
   # Cursor colors
   cursor:
     text:   '#002b36' # base03
-    cursor: '#2699ff' # base0
+    cursor: '#41c8a8' # base0
 
   # Normal colors
   normal:
     black:   '#073642' # base02
-    red:     '#dc322f' # red
+    red:     '#cf4539' # red
     green:   '#859900' # green
     yellow:  '#b58900' # yellow
     blue:    '#268bd2' # blue
     magenta: '#d33682' # magenta
-    cyan:    '#2aa198' # cyan
+    cyan:    '#41c8a8' # cyan
     white:   '#eee8d5' # base2
 
   # Bright colors
